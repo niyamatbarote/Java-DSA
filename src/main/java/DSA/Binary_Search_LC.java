@@ -214,7 +214,8 @@ public class Binary_Search_LC {
     }
 
     // ===================================================================================================
-    // Q) 1095--> Fiind in Mountain Array :-
+    // Q) 1095--> Find in Mountain Array :-
+    // Still Unsolved By Me*******************
     // https://leetcode.com/problems/find-in-mountain-array/description/?envType=problem-list-v2&envId=vrww4tkr
     // Note:- This is Brute Force Answer
 
