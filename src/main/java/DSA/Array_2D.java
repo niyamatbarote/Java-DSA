@@ -20,7 +20,7 @@ public class Array_2D {
         int[][] arr = new int[3][3];
 
         System.out.println(arr.length);
-
+        System.out.println("Enter Input in 2D Array: ");
         // Input in Array:-
         for (int row = 0; row < arr.length; row++) {
             // for Each Column
@@ -48,7 +48,6 @@ public class Array_2D {
         // OR
         for (int[] is : arr) {
             System.out.println(Arrays.toString(is));
-            
         }
 
 
