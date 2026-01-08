@@ -167,6 +167,7 @@ public class Binary_Search_LC {
             // Double the box value
             // Formula :- end = end + ArraySize*2
             end = end + (end - start + 1) * 2;
+//            end = end * 2;
             start = temp;
         }
         return binarySearch(arr, start, end, target);
@@ -369,7 +370,7 @@ public class Binary_Search_LC {
 
     public static void main(String[] args) {
         // char[] arr1 = { 'c', 'f', 'j' };
-        // int[] arr = { 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 25, 30, 44, 90 };
+         int[] arr = { 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 25, 30, 44, 90 };
         // Index----> 0, 1, 2, 3, 04, 05, 06, 07, 08, 09, 10, 11, 12, 13, 14
         // int[] arr2 = { 2, 4, 7, 7, 7, 7, 8, 8, 9 };
         // int[] mountain = { 10, 12, 20, 22, 30, 19, 15, 9, 5, 4, 2 };
@@ -383,12 +384,12 @@ public class Binary_Search_LC {
         // System.out.println(Arrays.toString(searchRange(arr2, 7)));
         // System.out.println(leftMost(arr2, 7));
         // System.out.println(rightMost(arr2, 7));
-        // System.out.println(myAns(arr, 44));
+         System.out.println(myAns(arr, 44));
         // System.out.println(findPeakElement(mountain));
         // System.out.println(findInMountainArray(mountain, 9));
         // System.out.println(search(rotated, 20));
-        System.out.println(rotationCount(rotated1));
-        System.out.println(rotationCountBS(rotated));
+//        System.out.println(rotationCount(rotated1));
+//        System.out.println(rotationCountBS(rotated));
         // System.out.println(pivot(rotated));
     }
 }
