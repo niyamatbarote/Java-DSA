@@ -1,4 +1,4 @@
-package DSA;
+package DSA.StarPatterns;
 
 public class Pattern {
     public static void main(String[] args) {

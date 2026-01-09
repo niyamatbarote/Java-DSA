@@ -1,6 +1,4 @@
-package DSA;
-
-import java.util.Arrays;
+package DSA.searching.Binary;
 
 public class Binary_Search_LC {
 

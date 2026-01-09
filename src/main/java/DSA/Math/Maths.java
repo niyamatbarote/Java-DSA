@@ -1,4 +1,4 @@
-package DSA;
+package DSA.Math;
 
 public class Maths {
 

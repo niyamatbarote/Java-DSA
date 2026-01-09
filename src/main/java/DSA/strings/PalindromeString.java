@@ -1,4 +1,4 @@
-package DSA;
+package DSA.strings;
 
 import java.util.Scanner;
 
