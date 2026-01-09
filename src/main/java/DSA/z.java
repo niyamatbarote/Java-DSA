@@ -19,7 +19,35 @@ public class z {
         return -1;
     }
 
+    class Solution {
+        public int search(int[] arr, int target) {
+            int start = 0;
+            int end = arr.length-1;
+            int ans = -1;
 
+            while (start <= end ) {
+                int mid = start + (end - start)/2;
+
+                if (arr[mid] == target) {
+                    ans = mid;
+                }
+                if (arr[start] <= arr[mid]) { //Left Sorted Check (If Present b/w Start & Mid)
+                    if (target >= arr[start] && target <= arr[mid] ) {
+                        end = mid -1;
+                    }else {
+                        start = mid+1;
+                    }
+                } else {//Right Sorted Check (If Present b/w Mid & End)
+                    if (target >= arr[mid] && target <= arr[end] ) {
+                        start = mid +1;
+                    }else {
+                        end = mid -1;
+                    }
+                }
+            }
+            return ans;
+        }
+    }
 
 
     public static void main(String[] args) {
