@@ -22,7 +22,7 @@ public class CyclicSort {
     // return arr;
     // }
 
-    // NOT FOR DUPLICATE VALUES
+    // NOT FOR DUPLICATE VALUES (Only UNIQUE)
     static int[] cyclicSort(int[] arr) {
         int i = 0;
         while (i < arr.length) {
