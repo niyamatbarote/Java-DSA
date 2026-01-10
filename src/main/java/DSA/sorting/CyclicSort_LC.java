@@ -14,7 +14,7 @@ public class CyclicSort_LC {
         return arr;
     }
 
-    // Amazon Interview Question (Leetcode Q) 258)
+    // Amazon Interview Question (Leetcode Q) 268)
     // https://leetcode.com/problems/missing-number/
     static int findMissingNum(int[] arr) {
         // int ans = -1;
