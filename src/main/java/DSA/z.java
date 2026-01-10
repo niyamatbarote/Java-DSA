@@ -56,5 +56,6 @@ public class z {
         int[] arr = {2,43,64,65,6,5,3,2,1,56};
         int x = findTarget(arr, 2);
         System.out.println(x);
+
     }
 }
