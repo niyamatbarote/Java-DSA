@@ -20,18 +20,25 @@ public class Maths {
     }
 
     // Find the Nth Bit of a No.
+    // Shifts the ith index and returns ANS in Decimal data type
     public static int findNBit(int n, int i) {
         return n & (1 << i - 1);
+    }
+
+    // Set ith Bit:
+    public static int setBit (int input, int i) {
+        return input | (1 << (i-1));
     }
 
     public static void main(String[] args) {
 
         int arr[] = { 1, -2, 3, 4, -2, 1, 3 };
 
-        System.out.println(isOdd(55));
-        System.out.println(isOdd(20));
-        System.out.println(findUnique(arr));
-        System.out.println(findNBit(10, 1));
+//        System.out.println(isOdd(55));
+//        System.out.println(isOdd(20));
+//        System.out.println(findUnique(arr));
+//        System.out.println(findNBit(10, 1));
+        System.out.println(setBit(5,2));
 
     }
 }
