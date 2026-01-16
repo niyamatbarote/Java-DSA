@@ -48,11 +48,35 @@ public class SquareRoot {
         return root;
     }
 
+    // NEWTON RAPHSON METHOD :-
+    //    Time Complexity: O[log(n) F(n)]
+    //    Formula :--
+    //    √N = [X + (N/X)]/2
+    //        Where X=guess, and N = Root Value
+    static double newtonRaphson(int n) {
+
+        double x = n;
+        double root ;
+        while (true){
+
+            root = 0.5 * (x + n / x );    // 0.5 == x/2
+
+            if (Math.abs(root-x)<0.5) { // Here 0.5 is Precision
+                return root;
+            }
+            x = root;
+        }
+
+    }
+
+
 
     public static void main(String[] args) {
 
 //        System.out.println(sqrRoot(4));
 //        System.out.printf("%.3f",sqrRootBS(40,3));
+
+        System.out.printf("%.3f", newtonRaphson(40));
 
     }
 }
