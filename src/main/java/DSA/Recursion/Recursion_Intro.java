@@ -1,6 +1,6 @@
 package DSA.Recursion;
 
-public class Recursion {
+public class Recursion_Intro {
 
     // Binary Search using recursion
     static int binarySearch(int[] arr, int target, int start, int end) {
