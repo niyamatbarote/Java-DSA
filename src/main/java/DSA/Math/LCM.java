@@ -29,10 +29,27 @@ public class LCM {
         return (a*b)/gcd(a,b);
     }
 
+    // LC Q) 2413 LINK:-
+    // https://leetcode.com/problems/smallest-even-multiple/
+    static int smallestEvenMultiple(int n) {
+        if (n%n == 0 && n%2==0) {
+            return n;
+        }
+        int i = 2;
+        while (true) {
+            if (myLCM(i,n)%2==0){
+                return myLCM(2, n);
+            }
+            i++;
+        }
+    }
+
+
     public static void main(String[] args) {
 
         System.out.println(lcm(3,7));
         System.out.println(myLCM(3,7));
+        System.out.println(smallestEvenMultiple(5));
 
     }
 }
