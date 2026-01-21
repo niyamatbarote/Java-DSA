@@ -65,16 +65,52 @@ public class Recursion_LVL1 {
 
     static int sumOfDigitsRec(int n) {
         // Base Case :
-        if (n < 1) {
-            return 0;
+        // Last Digit Check ( 5 % 5 == 5)
+        if (n %10 == n) {
+            return n;
         }
         // Recursion Formula :-
         return (n%10) + sumOfDigitsRec(n/10);
     }
 
+    // ERROR is Present Find Here ..!!
+    public static void concept(int n) {
+        if (n == 0) {
+            return;
+        }
+        System.out.println(n);
+        // This is Wrong Approach:
+        concept(n--);
+
+        // This is Correct Way to Subtract From (n)
+        // concept(--n);
+    }
+
+    public static void revNum(int n) {
+        if (n < 1) {
+            return;
+        }
+        System.out.print(n%10 + " ");
+        revNum(n/10);
+    }
+
+    public static void revNum1(int n) {
+        int sum = 0;
+        // For +ve int :
+        if (n < 1) {
+            return;
+        }
+        int rem = n % 10;
+        sum = sum * 10 + rem;
+        System.out.print(sum+" ");
+        revNum1(n/10);
+    }
+
+
     public static void main(String[] args) {
 //        bothFxn(10);
-        System.out.println(sumOfDigits(232));
-        System.out.println(sumOfDigitsRec(232));
+        revNum(64450);
+        System.out.println();
+        revNum1(64450);
     }
 }
