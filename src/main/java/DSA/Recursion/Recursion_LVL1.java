@@ -106,11 +106,26 @@ public class Recursion_LVL1 {
         revNum1(n/10);
     }
 
+    // Using Digits & helper Method
+    static int revNum2(int n) {
+        int digits = (int)Math.log10(n)+1;
+        return helper(n, digits);
+    }
+
+    static int helper(int n, int digits) {
+        if (n % 10 == n) {
+            return n;
+        }
+        int rem = n%10;
+        // (Math.pow(10,3) = 1000
+        return rem * (int) Math.pow(10,digits-1) + helper(n/10,digits-1);
+    }
+
+
+
 
     public static void main(String[] args) {
-//        bothFxn(10);
-        revNum(64450);
-        System.out.println();
-        revNum1(64450);
+
+        System.out.println(revNum2(1234));
     }
 }
