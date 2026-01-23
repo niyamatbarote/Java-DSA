@@ -53,13 +53,37 @@ public class Recursion_Arrays {
         return searchMultiple1(arr,target,index+1, ans);
     }
 
+    static int recursionBS(int[] arr, int target, int start, int end) {
+        int mid = start + (end-start) / 2;
+        if (start>end) {
+            return -1;
+        }
+        if (arr[mid] == target) {
+            return mid;
+        }
+
+        if (arr[start] <= arr[mid]) {
+            if (arr[start]<=target && arr[mid]>=target) {
+                return recursionBS(arr,target,start,mid-1);
+            }else {
+                return recursionBS(arr, target, mid+1, end);
+            }
+        }else {
+            if (arr[mid] <= target && arr[end]>= target) {
+                return recursionBS(arr,target,mid+1,end);
+            }else {
+                return recursionBS(arr,target,start,mid-1);
+            }
+        }
+    }
+
     public static void main(String[] args) {
 
-        int[] arr = {7,7,7,7,7,7};
+        int[] arr = {7,8,9,10,1,2,3,4,5,6};
 
 //        ArrayList<Integer> ans = new ArrayList<>();
 //        System.out.println(searchMultiple1(arr,7,0,ans));
+
+        System.out.println(recursionBS(arr, 6,0,arr.length-1));
     }
-
-
 }
