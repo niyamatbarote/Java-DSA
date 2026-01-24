@@ -1,5 +1,8 @@
 package DSA.Recursion;
 
+import java.sql.SQLOutput;
+import java.util.Arrays;
+
 public class Recursion_Pattern_Sorting {
 
     static void starPattern(int r) {
@@ -57,9 +60,64 @@ public class Recursion_Pattern_Sorting {
         }
     }
 
+    static int[] swap(int[] arr, int one , int two ) {
+        int temp = arr[one];
+        arr[one] = arr[two];
+        arr[two] = temp;
+        return arr;
+    }
+
+    static int getMax(int[] arr) {
+        int max = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i]>arr[max]) {
+                max = i;
+            }
+        }
+        return max;
+    }
+
+
+    // Bubble Sort Using Recursion
+    // Here (length = arr.length) and (start = 0)
+    static void recBubbleSort(int[] arr, int length, int start) {
+        // Base Case :
+        if (length == 0) {
+            return ;
+        }
+        // Recursive Steps :
+        if (start < length) {
+            if (arr[start] > arr[start+1]) {
+                swap(arr, start, start+1);
+            }
+            recBubbleSort(arr,length,start+1);
+        }else {
+            recBubbleSort(arr, length - 1, 0);
+        }
+    }
+
+    // Selection Sort Using Recursion (Not Workinnnnn)
+    static void recSelectionSort(int[] arr, int start, int end) {
+        if (end == 0) {
+            return;
+        }
+        int max = getMax(arr);
+        if (start < end) {
+            if (arr[start] > arr[max]) {
+                swap(arr,max,start);
+            }
+            recSelectionSort(arr,start+1, end);
+        }else {
+            recSelectionSort(arr,end-1,start);
+        }
+    }
 
 
     public static void main(String[] args) {
-        starPattern01(4,0);
+
+        int[] arr = {5,6,4,7,3,8,2,10,1,9};
+        recSelectionSort(arr,0,arr.length-1);
+        System.out.println(Arrays.toString(arr));
+
     }
 }
