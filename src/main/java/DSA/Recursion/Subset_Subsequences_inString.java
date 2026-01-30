@@ -1,5 +1,7 @@
 package DSA.Recursion;
 
+import java.util.ArrayList;
+
 public class Subset_Subsequences_inString {
 
     static String skipChar(String ans, String str, char remove) {
@@ -50,8 +52,40 @@ public class Subset_Subsequences_inString {
         }
     }
 
+    static void subSequences(String processed, String unProcessed) {
+        // Base Case:
+        if (unProcessed.isEmpty()) {
+            System.out.println(processed);
+            return;
+        }
+
+        char ch = unProcessed.charAt(0);
+
+        // Recursive Step :
+        // This will INCLUDE the Character
+        subSequences(processed+ch, unProcessed.substring(1));
+        // This Will SKIP That Character
+        subSequences(processed, unProcessed.substring(1));
+    }
+
+    static ArrayList<String> subSequences1(String processed, String unProcessed, ArrayList<String> ans) {
+        // Base Case:
+        if (unProcessed.isEmpty()) {
+            System.out.println(processed);
+            return;
+        }
+
+        char ch = unProcessed.charAt(0);
+
+        // Recursive Step :
+        // This will INCLUDE the Character
+        subSequences1(processed+ch, unProcessed.substring(1),ans.add(1,ch));
+        // This Will SKIP That Character
+        subSequences1(processed, unProcessed.substring(1));
+    }
+
     public static void main(String[] args) {
-        String s = "AmanApple";
-        System.out.println(skipAppNotApple(s));
+        String s = "abc";
+        subSequences("",s);
     }
 }
