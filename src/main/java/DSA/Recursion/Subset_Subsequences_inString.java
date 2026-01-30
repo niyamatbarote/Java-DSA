@@ -68,24 +68,28 @@ public class Subset_Subsequences_inString {
         subSequences(processed, unProcessed.substring(1));
     }
 
-    static ArrayList<String> subSequences1(String processed, String unProcessed, ArrayList<String> ans) {
+    static ArrayList<String> subSequences1(String processed, String unProcessed) {
         // Base Case:
         if (unProcessed.isEmpty()) {
-            System.out.println(processed);
-            return;
+            ArrayList<String> ans = new ArrayList<>();
+            ans.add(processed);
+            return ans;
         }
 
         char ch = unProcessed.charAt(0);
 
         // Recursive Step :
         // This will INCLUDE the Character
-        subSequences1(processed+ch, unProcessed.substring(1),ans.add(1,ch));
+        ArrayList<String> left = subSequences1(processed+ch, unProcessed.substring(1));
         // This Will SKIP That Character
-        subSequences1(processed, unProcessed.substring(1));
+        ArrayList<String> right = subSequences1(processed, unProcessed.substring(1));
+
+        left.addAll(right);
+        return left;
     }
 
     public static void main(String[] args) {
         String s = "abc";
-        subSequences("",s);
+        System.out.println(subSequences1("",s));
     }
 }

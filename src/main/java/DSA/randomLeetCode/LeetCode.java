@@ -57,8 +57,6 @@ public class LeetCode {
     }
 
     public static void main(String[] args) {
-        int[] arr = {1,2,3,4,5,4,5,3,2,1,9};
-        arr = getConcatenation(arr);
-        System.out.println(Arrays.toString(arr));
+        int[] arr = {1,2,3,4,5,4,5,3,2,9};
     }
 }
