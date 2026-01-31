@@ -1,6 +1,7 @@
 package DSA.Recursion;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Subset_Subsequences_inString {
 
@@ -86,10 +87,69 @@ public class Subset_Subsequences_inString {
 
         left.addAll(right);
         return left;
+//        OR
+//        right.addAll(left);
+//        return right;
+    }
+
+    // Void Return Type :
+    static void subSeqAscii(String p, String up) {
+        // Base Case :
+        if (up.isEmpty()) {
+            System.out.println(p);
+            return;
+        }
+
+        // Recursive Part :
+        char ch = up.charAt(0);
+
+        subSeqAscii(p,up.substring(1));
+        subSeqAscii(p+ch,up.substring(1));
+        subSeqAscii(p+(ch+0),up.substring(1));
+    }
+
+    // ArrayList Return Type :
+    static ArrayList<String> subSeqAsciiRet(String p, String up) {
+        // Base Case :
+        if (up.isEmpty()) {
+            ArrayList<String> ans = new ArrayList<>();
+            ans.add(p);
+            return ans;
+        }
+
+        // Recursive Part :
+        char ch = up.charAt(0);
+
+        ArrayList<String> first = subSeqAsciiRet(p,up.substring(1));
+        ArrayList<String> second = subSeqAsciiRet(p+ch,up.substring(1));
+        ArrayList<String> third = subSeqAsciiRet(p+(ch+0),up.substring(1));
+
+        // Merge All first, second , And Third
+        first.addAll(second);
+        first.addAll(third);
+        return first;
+    }
+
+    static List<List<Integer>> subSet(int[] arr) {
+
+        List<List<Integer>> outer = new ArrayList<>();
+
+        outer.add(new ArrayList<>());
+
+        for (int num : arr) {
+            int size = outer.size();
+            for (int i = 0; i < size; i++) {
+                List<Integer> internal = new ArrayList<>(outer.get(i));
+                internal.add(num);
+                outer.add(internal);
+            }
+        }
+    return outer;
     }
 
     public static void main(String[] args) {
-        String s = "abc";
-        System.out.println(subSequences1("",s));
+        int[] arr = {1,2,3};
+        System.out.println(subSet(arr));
+
     }
 }
