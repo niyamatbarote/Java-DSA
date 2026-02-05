@@ -17,6 +17,6 @@ public class Maze {
     }
 
     public static void main(String[] args) {
-        System.out.println(mazeStepsCount(3,3));
+        System.out.println(mazeStepsCount(3,4));
     }
 }
