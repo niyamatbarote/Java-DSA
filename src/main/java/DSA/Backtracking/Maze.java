@@ -16,7 +16,25 @@ public class Maze {
         return left + right;
     }
 
+    public static void mazeMoves(String processed, int row, int column) {
+        // Base Case :
+        if (row == 1 && column == 1) {
+            System.out.println(processed);
+            return;
+        }
+
+        // Recursive Step :
+        if (row > 1) {
+            mazeMoves(processed+'D',row-1,column);
+        }
+        if (column > 1) {
+            mazeMoves(processed+'R',row,column-1);
+        }
+    }
+
+
     public static void main(String[] args) {
-        System.out.println(mazeStepsCount(3,4));
+        System.out.println(mazeStepsCount(4,4));
+        mazeMoves("",4,4);
     }
 }

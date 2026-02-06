@@ -36,6 +36,7 @@ public class DiceProblem {
     }
 
     public static void main(String[] args) {
-        System.out.println(diceReturn("",4));
+        dice("",4);
+//        System.out.println(diceReturn("",4));
     }
 }
