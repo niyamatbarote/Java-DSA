@@ -176,6 +176,36 @@ public class Maze {
     return list;
     }
 
+    // FOR ALL RIGHT AND DOWN AND DIAGONAL DIRECTION
+    // Start At (0,0) and Target AT (n,n)
+    static ArrayList<String> mazeObstacleAllDirRet(String path, boolean[][] maze, int row, int col) {
+        // Base Case:
+        if (row == maze.length - 1 && col == maze[0].length - 1) {
+            ArrayList<String> ans = new ArrayList<>();
+            ans.add(path);
+            return ans;
+        }
+        // RECURSION PART :
+        ArrayList<String> list = new ArrayList<>();
+        // | OR | if (obs.[row][col] == false)
+        if (!maze[row][col]) {
+            return list;
+        }
+        // GO DOWN :
+        if (row < maze.length-1) {
+            list.addAll(mazeObstacleAllDirRet(path+'V',maze,row+1,col));
+        }
+        // GO RIGHT ( col + 1 )
+        if (col < maze[0].length-1) {
+            list.addAll(mazeObstacleAllDirRet(path+'H',maze,row,col+1));
+        }
+        // GO Diagonal ( col + 1 , row + 1 )
+        if (col < maze[0].length-1 && row <maze.length - 1) {
+            list.addAll(mazeObstacleAllDirRet(path+'D',maze,row+1,col+1));
+        }
+        return list;
+    }
+
     public static void main(String[] args) {
 //        System.out.println(mazeStepsCount(4,4));
 //        mazeMoves("",4,4);
@@ -190,8 +220,11 @@ public class Maze {
                 {true, true, true},
                 {true, false, true},
                 {true, true, true},
+                {true, true, true},
+                {true, false, true},
+                {true, true, true},
             };
 
-        System.out.println(mazeObstacleRet("",obstacle,0,0));
+        System.out.println(mazeObstacleAllDirRet("",obstacle,0,0));
     }
 }
