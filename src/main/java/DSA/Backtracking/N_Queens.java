@@ -21,6 +21,7 @@ public class N_Queens {
         return ans;
     }
 
+    // IS SAFE CHECK :
     public static boolean isSafe(String[][] board, int row, int col,int n) {
 
         // Horizontal Check :
@@ -53,6 +54,7 @@ public class N_Queens {
     return true;
     }
 
+    // PLACING QUEENS ACCORDING TO THE ROWS ...
     public static void nQueens(String[][] board, int row, int n, ArrayList<ArrayList<String>> ans) {
         // Base Case :
         if (row == n) {
