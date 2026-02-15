@@ -1,13 +1,12 @@
 package DSA.Backtracking;
 
 
-import DSA.Arrays.Array;
-
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+
 
 public class N_Queens {
+
+    // **** TIME COMPLEXITY OF N-QUEEN PROBLEM IS  ::: O(N!) ****
 
     // helper function :
     public static ArrayList<String> construct(String[][] board) {
