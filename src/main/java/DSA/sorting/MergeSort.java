@@ -11,7 +11,7 @@ public class MergeSort {
         }
         int mid = arr.length / 2;
 
-        // It excludes the to: value Like it excludes "mid" for "left"
+        // It excludes the to: value Like it excludes "mid" for "left" & "arr.length" for right
         int[] left = mergeSort(Arrays.copyOfRange(arr, 0,mid));
         int[] right = mergeSort(Arrays.copyOfRange(arr, mid, arr.length));
 
