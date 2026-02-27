@@ -25,4 +25,27 @@ public class LinkedList {
         }
     }
 
+    // Insert Element to Head in LL (Method):
+    public void insertHead(int val) {
+        Node node = new Node(val);
+        node.next = head;
+        head = node;
+
+        if (tail == null) {
+            tail = head;
+        }
+        size += 1;
+    }
+
+    // Show the LL :
+    public void displayLL() {
+        Node temp = head;
+        while (temp != null) {
+            System.out.print(temp.value + " -> ");
+            temp = temp.next;
+        }
+        System.out.print("END..!!");
+    }
+
+
 }
