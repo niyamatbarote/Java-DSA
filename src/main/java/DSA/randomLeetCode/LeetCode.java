@@ -56,6 +56,39 @@ public class LeetCode {
         return ans;
     }
 
+    // LC Q) 1470
+    // https://leetcode.com/problems/shuffle-the-array/description/
+    class Solution {
+        public int[] shuffle(int[] arr, int n) {
+            int l = arr.length;
+            int[] arrx = new int[n];
+            int[] arry = new int[n];
+            int[] ans = new int[l];
+
+            int i = 0;
+            int j = n;
+            while (i<n && j<l) {
+                arrx[i] = arr[i];
+                arry[i] = arr[j];
+                i++;
+                j++;
+            }
+
+            int a = 0;
+            // int b= 0;
+            int c = 0;
+            while (a<n) {
+                ans[c] = arrx[a];
+                c++;
+                ans[c] = arry[a];
+                a++;
+                // b++;
+                c++;
+            }
+            return ans;
+        }
+    }
+
     public static void main(String[] args) {
         int[] arr = {1,2,3,4,5,4,5,3,2,9};
     }
