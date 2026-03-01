@@ -11,8 +11,9 @@ public class Main {
         list.insertHead(53);
         list.insertHead(45);
         list.insertHead(95);
+        list.insertTail(10);
+        list.insertAt(122,2);
 
         list.displayLL();
-        System.out.println();
     }
 }

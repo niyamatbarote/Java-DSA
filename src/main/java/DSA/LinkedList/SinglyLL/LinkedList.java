@@ -47,5 +47,39 @@ public class LinkedList {
         System.out.print("END..!!");
     }
 
+    // Insert at TAIL :
+    public void insertTail(int val) {
+        if (tail==null) {
+            insertHead(val);
+            return;
+        }
+        Node node = new Node(val);
+        tail.next =  node;
+        tail = node;
+        size++;
+    }
+
+    // Insert at Index :
+    public void insertAt(int val, int index) {
+        if (index == 0) {
+            insertHead(val);
+            return;
+        }
+        if (index == size) {
+            insertTail(val);
+            return;
+        }
+
+        Node temp = head;
+        for (int i = 1; i < index; i++) {
+            temp = temp.next;
+        }
+        Node node = new Node(val);
+        Node newTemp = temp.next;
+        temp.next = node;
+        node.next = newTemp;
+        size++;
+    }
+
 
 }
