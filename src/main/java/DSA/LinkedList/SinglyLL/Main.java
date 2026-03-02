@@ -13,7 +13,9 @@ public class Main {
         list.insertHead(95);
         list.insertTail(10);
         list.insertAt(122,2);
-
         list.displayLL();
+        System.out.println("\n"+list.deleteAtIndex(1));
+        list.displayLL();
+
     }
 }

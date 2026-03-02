@@ -25,6 +25,15 @@ public class LinkedList {
         }
     }
 
+    // Get ith Index Element :
+    public Node getNode(int index) {
+        Node node = head;
+        for (int i = 0; i < index; i++) {
+            node = node.next;
+        }
+        return node;
+    }
+
     // Insert Element to Head in LL (Method):
     public void insertHead(int val) {
         Node node = new Node(val);
@@ -44,7 +53,7 @@ public class LinkedList {
             System.out.print(temp.value + " -> ");
             temp = temp.next;
         }
-        System.out.print("END..!!");
+        System.out.print("NULL");
     }
 
     // Insert at TAIL :
@@ -74,12 +83,57 @@ public class LinkedList {
         for (int i = 1; i < index; i++) {
             temp = temp.next;
         }
-        Node node = new Node(val);
-        Node newTemp = temp.next;
+        Node node = new Node(val,temp.next);
         temp.next = node;
-        node.next = newTemp;
         size++;
     }
 
+    // Delete First Element :
+    public int deleteFirst() {
+        int val = head.value;
+        head = head.next;
+
+        if (head == null) {
+            tail = null;
+        }
+
+        size--;
+        return val ;
+    }
+
+    // Delete Last Element :
+    public int deleteLast() {
+
+        if (size<=1) {
+            return deleteFirst();
+        }
+        int val = tail.value;
+        Node node = getNode(size-2);
+        tail = node;
+        tail.next = null;
+//        node = tail;
+//        node.next = null;
+
+        size--;
+
+        return val;
+    }
+
+    // Delete At Index :
+    public int deleteAtIndex(int index) {
+        if (index == 0) {
+            return deleteFirst();
+        }
+        if (index == size-1) {
+            return deleteLast();
+        }
+
+        Node prev = getNode(index-1);
+        int val = prev.next.value;
+        prev.next = prev.next.next;
+        size--;
+
+        return val;
+    }
 
 }
