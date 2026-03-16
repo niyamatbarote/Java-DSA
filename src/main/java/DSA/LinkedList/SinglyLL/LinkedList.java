@@ -136,4 +136,16 @@ public class LinkedList {
         return val;
     }
 
+    public Node search(int val) {
+        Node node = head;
+
+        while (node != null) {
+            if (node.value == val) {
+                return node;
+            }
+            node = node.next;
+        }
+        return null;
+    }
+
 }

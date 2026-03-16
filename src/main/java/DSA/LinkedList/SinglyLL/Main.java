@@ -17,5 +17,6 @@ public class Main {
         System.out.println("\n"+list.deleteAtIndex(1));
         list.displayLL();
 
+        System.out.println(list.search(122));
     }
 }
