@@ -2,6 +2,10 @@ package DSA.LinkedList.SinglyLL;
 
 public class LinkedList {
 
+    public int getSize() {
+        return size;
+    }
+
     private Node head;
     private Node tail;
     private int size;
@@ -136,6 +140,7 @@ public class LinkedList {
         return val;
     }
 
+    // Search In LL :
     public Node search(int val) {
         Node node = head;
 
