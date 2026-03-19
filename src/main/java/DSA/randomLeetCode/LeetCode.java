@@ -1,6 +1,8 @@
 package DSA.randomLeetCode;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class LeetCode {
 
@@ -89,7 +91,40 @@ public class LeetCode {
         }
     }
 
+    // Q) 989  Add to Array Form of Integer :
+    public static int digitCount(int n) {
+        int count = 0;
+        while (n>0) {
+            n /= 10;
+            count ++;
+        }
+        return count;
+    }
+
+    public static List<Integer> addToArrayForm(int[] arr, int k) {
+        int n = arr.length;
+        int integer = 0;
+
+        for (int i = 0; i<n; i++) {
+            integer = integer * 10 + arr[i];
+        }
+        integer += k;
+
+        ArrayList<Integer> list = new ArrayList<>();
+        int digit = digitCount(integer);
+        int[] ans = new int[digit];
+        for (int j = digit-1; j>=0; j--) {
+            ans[j] = integer % 10;
+            integer /= 10;
+        }
+
+        for (int i = 0; i<digit; i++) {
+            list.add(ans[i]);
+        }
+        return list;
+    }
+
     public static void main(String[] args) {
-        int[] arr = {1,2,3,4,5,4,5,3,2,9};
+        int[] arr = {9,9,9,9,9,9,9,9,9,9};
     }
 }
