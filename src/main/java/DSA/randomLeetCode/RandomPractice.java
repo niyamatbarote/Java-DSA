@@ -25,8 +25,8 @@ public class RandomPractice {
         return arr;
     }
 
-    // Median of two sorted arrays :
-    public int[] findMedianSortedArrays(int[] arr1, int[] arr2) {
+    // Q) 4 Median of two sorted arrays :
+    public static double findMedianSortedArrays(int[] arr1, int[] arr2) {
         int a1 = arr1.length;
         int a2 = arr2.length;
         int i =0;
@@ -35,7 +35,7 @@ public class RandomPractice {
 
         int[] ans = new int[a1+a2];
 
-        while (i < a1 || j < a2) {
+        while (i < a1 && j < a2) {
 
             if ( arr1[i] > arr2[j] ) {
                 ans[k] = arr2[j];
@@ -46,28 +46,39 @@ public class RandomPractice {
                 k++;
                 i++;
             }
-
-            while (i<a1) {
-                ans[k] = arr1[i];
-                i++;
-                k++;
-            }
-
-            while (j<a2) {
-                ans[k] = arr1[j];
-                j++;
-                k++;
-            }
         }
-        return ans;
+
+        while (i<a1) {
+            ans[k] = arr1[i];
+            i++;
+            k++;
+        }
+
+        while (j<a2) {
+            ans[k] = arr2[j];
+            j++;
+            k++;
+        }
+
+        int n = ans.length;
+        double median = 0.0;
+
+        if (n%2 != 0) {
+            median = ans[(n-1)/2];
+        }
+        else   {
+            median = (double) (ans[n / 2] + ans[n / 2 - 1]) / 2;
+        }
+
+        return median;
     }
 
 
     public static void main(String[] args) {
         int[] arrray = {10,20,30,40,50};
-        int[] arr = {60,70};
+        int[] arr = {60};
 
-
+        System.out.println(findMedianSortedArrays(arr,arrray));
 
 
     }
