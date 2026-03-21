@@ -103,7 +103,7 @@ public class LeetCode {
 
     public static List<Integer> addToArrayForm(int[] arr, int k) {
         int n = arr.length;
-        int integer = 0;
+        long integer = 0;
 
         for (int i = 0; i<n; i++) {
             integer = integer * 10 + arr[i];
@@ -111,10 +111,10 @@ public class LeetCode {
         integer += k;
 
         ArrayList<Integer> list = new ArrayList<>();
-        int digit = digitCount(integer);
+        int digit = digitCount((int)integer);
         int[] ans = new int[digit];
         for (int j = digit-1; j>=0; j--) {
-            ans[j] = integer % 10;
+            ans[j] = (int) integer % 10;
             integer /= 10;
         }
 
@@ -126,5 +126,6 @@ public class LeetCode {
 
     public static void main(String[] args) {
         int[] arr = {9,9,9,9,9,9,9,9,9,9};
+        System.out.println(addToArrayForm(arr,1));
     }
 }
