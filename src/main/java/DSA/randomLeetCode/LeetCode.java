@@ -124,8 +124,57 @@ public class LeetCode {
         return list;
     }
 
+
+    // Q) 4 Median of two sorted arrays :
+    public static double findMedianSortedArrays(int[] arr1, int[] arr2) {
+        int a1 = arr1.length;
+        int a2 = arr2.length;
+        int i =0;
+        int j =0;
+        int k =0;
+
+        int[] ans = new int[a1+a2];
+
+        while (i < a1 && j < a2) {
+
+            if ( arr1[i] > arr2[j] ) {
+                ans[k] = arr2[j];
+                k++;
+                j++;
+            } else {
+                ans[k] = arr1[i];
+                k++;
+                i++;
+            }
+        }
+
+        while (i<a1) {
+            ans[k] = arr1[i];
+            i++;
+            k++;
+        }
+
+        while (j<a2) {
+            ans[k] = arr2[j];
+            j++;
+            k++;
+        }
+
+        int n = ans.length;
+        double median = 0.0;
+
+        if (n%2 != 0) {
+            median = ans[(n-1)/2];
+        }
+        else   {
+            median = (double) (ans[n / 2] + ans[n / 2 - 1]) / 2;
+        }
+
+        return median;
+    }
+
     public static void main(String[] args) {
         int[] arr = {9,9,9,9,9,9,9,9,9,9};
-        System.out.println(addToArrayForm(arr,1));
+        
     }
 }
