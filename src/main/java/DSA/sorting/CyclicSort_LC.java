@@ -146,7 +146,7 @@ public class CyclicSort_LC {
                 return j + 1;
             }
         }
-        return arr.length - 1;
+        return arr.length + 1;
     }
 
     public static void main(String[] args) {
