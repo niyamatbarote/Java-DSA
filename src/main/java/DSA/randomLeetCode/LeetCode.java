@@ -173,8 +173,64 @@ public class LeetCode {
         return median;
     }
 
+    // Q) 3546
+    public static int canPartitionGrid(int[][] arr) {
+        int row = arr.length;
+        int col = arr[0].length;
+
+        boolean hor = false;
+        boolean ver = false;
+
+        int horSum = 0;
+        int verSum = 0;
+// horizontal Sum :
+        for (int i =0 ; i<1; i++) {
+            for(int j=0; j<col; j++) {
+                horSum += arr[i][j];
+            }
+        }
+// vertical Sum :
+        int l = 0;
+        int m = 0;
+        while (l<row) {
+            verSum += arr[l][m];
+            l++;
+        }
+
+        for (int i =0 ; i<row; i++) {
+            int sum = 0;
+            for (int j = 0; j<col; j++) {
+                sum += arr[i][j];
+            }
+            if (sum != verSum) {
+                hor = false;
+                break;
+            } else {
+                hor = true;
+            }
+        }
+
+        for (int i =0; i<col; i++) {
+            int tot=0;
+            for (int j = 0; j<row; j++) {
+                tot += arr[i][j];
+            }
+            if (tot != horSum) {
+                hor = false;
+                break;
+            }else {
+                hor = true;
+            }
+        }
+
+        return verSum;
+
+
+    }
+
     public static void main(String[] args) {
-        int[] arr = {9,9,9,9,9,9,9,9,9,9};
+        int[][] arr = {{2,3},{1,4}};
+        System.out.println(canPartitionGrid(arr));
         
     }
 }
