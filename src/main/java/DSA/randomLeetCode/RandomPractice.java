@@ -73,12 +73,129 @@ public class RandomPractice {
         return median;
     }
 
+    public static void starPattern1 (int n) {
+
+        for (int i = 1; i<=n; i++) {
+            for (int j = 1; j<= i; j++) {
+                System.out.print(" * ");
+            }
+            System.out.println();
+        }
+    }
+
+//    static void starPattern2 (int n) {
+//        int var = n-1;
+//        for (int i =1 ; i<=n; i++) {
+//
+//            for (int j = var; j<=n; j--) {
+//                System.out.print("   ");
+//            }
+//
+//            for (int k = 1; k<=i; k++) {
+//                System.out.print(" * ");
+//            }
+//            System.out.println();
+//        }
+//    }
+
+    public static boolean isEven(int n) {
+        return n % 2 == 0;
+    }
+
+    public static int binarySearch(int[] arr, int target) {
+        int n = arr.length;
+        int start = 0;
+        int end = n-1;
+
+        while (start <= end) {
+            int mid = start + (end - start) / 2;
+            // Target Found ..!!
+            if (arr[mid] == target) {
+                return mid;
+            }
+            // Target > Mid
+            if (target > arr[mid]) {
+                start = mid + 1;
+            }
+            // Target < Mid
+            if (target < arr[mid]) {
+                end = mid -1;
+            }
+        }
+        // If Target Not Found
+        return -1;
+    }
+
+    public static int countDigits(int n) {
+        if (n == 0) {
+            return 1;
+        }
+// For -ve Numbers
+        if (n < 0) {
+            n = -n;
+        }
+
+        int count = 0;
+        while (n > 0) {
+            n /= 10;
+            count ++;
+        }
+        return count;
+    }
+
+    public static int reverseNum(int n) {
+
+        if (n == 0) {
+            return 1;
+        }
+
+        int rev = 0;
+
+        while (n>0) {
+            int digit = n%10;
+            rev = rev * 10 + digit;
+            n /= 10;
+        }
+        return rev;
+    }
+
+    public static boolean isPalindrome(int n) {
+        int og = n;
+        int rev = 0;
+
+        while (n>0) {
+            int digit = n % 10;
+            rev = rev * 10 + digit;
+            n /= 10;
+        }
+        return og == rev;
+    }
+
+    public static int largestDigit(int n) {
+        if (n<10) {
+            return n;
+        }
+        int large = n % 10;
+
+        while (n>0) {
+            int dig = n % 10;
+            if (dig > large) {
+                large = dig;
+            }
+            n /= 10;
+        }
+        return large;
+    }
 
     public static void main(String[] args) {
         int[] arrray = {10,20,30,40,50};
         int[] arr = {60};
+        int n = arrray.length;
+        System.out.println(largestDigit(1641));
 
-        System.out.println(findMedianSortedArrays(arr,arrray));
+
+
+
 
 
     }
