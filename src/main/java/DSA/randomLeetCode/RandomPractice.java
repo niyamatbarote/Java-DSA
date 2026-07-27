@@ -187,11 +187,40 @@ public class RandomPractice {
         return large;
     }
 
+    public static void fibo(int n) {
+        int a =0;
+        int b =1;
+
+        for (int i = 0; i<n; i++) {
+            System.out.print( a + " ");
+            int c = a+b;
+            a = b;
+            b = c;
+        }
+    }
+
+    public static int fiboNth(int n) {
+        if(n == 0) {
+            return 0;
+        }
+        if(n == 1) {
+            return 1;
+        }
+        int a = 0;
+        int b = 1;
+        for (int i = 1; i < n; i++) {
+            int c = a+b;
+            a=b;
+            b=c;
+        }
+        return b;
+    }
+
     public static void main(String[] args) {
         int[] arrray = {10,20,30,40,50};
         int[] arr = {60};
         int n = arrray.length;
-        System.out.println(largestDigit(1641));
+        System.out.println(fiboNth(7));
 
 
 
