@@ -216,11 +216,39 @@ public class RandomPractice {
         return b;
     }
 
+public static boolean isFascinating(int n) {
+        String str = "" + n + (2*n) + (3*n);
+
+        // Length is not 9 check
+        if (str.length() != 9) {
+            return false;
+        }
+    // Contains Zero check
+    for (int i = 0; i < str.length(); i++) {
+        if (str.charAt(i) == 0) {
+            return false;
+        }
+    }
+
+    for (char ch = '1'; ch<='9'; ch++) {
+        int count  = 0;
+        for (int k = 0; k < str.length(); k++) {
+            if (ch == str.charAt(k)) {
+                count++;
+            }
+        }
+        if (count != 1) {
+            return false;
+        }
+    }
+    return true;
+}
+
     public static void main(String[] args) {
         int[] arrray = {10,20,30,40,50};
         int[] arr = {60};
         int n = arrray.length;
-        System.out.println(fiboNth(7));
+        System.out.println(isFascinating(192));
 
 
 
