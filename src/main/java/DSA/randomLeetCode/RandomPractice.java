@@ -244,11 +244,47 @@ public static boolean isFascinating(int n) {
     return true;
 }
 
+public static int[] quickSort(int[] arr, int low , int high) {
+        // Base Case :
+    if (low >= high) {
+        return arr;
+    }
+
+    int start = low;
+    int end = high;
+    int mid = start + (end-start) / 2;
+    int pivot = arr[mid];
+
+    while (start <= end) {
+
+        while (arr[start] < pivot) {
+            start++;
+        }
+
+        while (arr[end] > pivot) {
+            end--;
+        }
+        // SWAP :
+        if (start <= end) {
+            int temp = arr[start];
+            arr[start] = arr[end];
+            arr[end] = temp;
+            start++;
+            end--;
+        }
+    }
+    quickSort(arr, low, end);
+    quickSort(arr, start, high);
+
+    return arr;
+}
+
     public static void main(String[] args) {
-        int[] arrray = {10,20,30,40,50};
+        int[] arrray = {10,40,20,80,60,50,30,200,2,5,7,1};
         int[] arr = {60};
         int n = arrray.length;
-        System.out.println(isFascinating(123456789));
+        int[] new1 = quickSort(arrray, 0, arrray.length-1);
+        System.out.println(Arrays.toString(new1));
 
 
     }
