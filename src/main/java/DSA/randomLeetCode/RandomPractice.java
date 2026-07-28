@@ -248,11 +248,7 @@ public static boolean isFascinating(int n) {
         int[] arrray = {10,20,30,40,50};
         int[] arr = {60};
         int n = arrray.length;
-        System.out.println(isFascinating(192));
-
-
-
-
+        System.out.println(isFascinating(123456789));
 
 
     }

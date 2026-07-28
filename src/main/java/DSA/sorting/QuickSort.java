@@ -53,9 +53,11 @@ public class QuickSort {
         int pivot = arr[mid];
 
         while (start <= end) {
+            // All the elements LESS THAN pivot should be on LEFT side of PIVOT
             while (arr[start] < pivot) {
                 start++;
             }
+            // All the elements GREATER THAN pivot should be on RIGHT side of PIVOT
             while (arr[end] > pivot) {
                 end--;
             }
