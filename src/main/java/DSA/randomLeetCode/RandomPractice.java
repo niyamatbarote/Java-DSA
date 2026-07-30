@@ -78,8 +78,8 @@ public class RandomPractice {
             return arr;
         }
         int n = arr.length;
-        int start = 0;
-        int end = n-1;
+        int start = low;
+        int end = high;
         int mid = start + (end-start) / 2;
         int pivot = arr[mid];
 
@@ -91,7 +91,7 @@ public class RandomPractice {
                 end--;
             }
             //SWAP
-            if (start >= end) {
+            if (start <= end) {
                 int temp = arr[start];
                 arr[start] = arr[end];
                 arr[end] = temp;
@@ -111,7 +111,7 @@ public class RandomPractice {
         int[] array = {1,2,5,6,2,1};
         int[] arr = {60};
         int n = array.length;
-        int[] ans = sortArray(array, 0, n);
+        int[] ans = sortArray(array, 0, n-1);
         System.out.println(Arrays.toString(ans));
 
 
