@@ -73,30 +73,47 @@ public class RandomPractice {
         return median;
     }
 
-    public static int peakElement(int[] arr) {
+    public static int[] sortArray(int[] arr, int low, int high) {
+        if (low >= high){
+            return arr;
+        }
         int n = arr.length;
         int start = 0;
         int end = n-1;
+        int mid = start + (end-start) / 2;
+        int pivot = arr[mid];
 
-        while (start<end) {
-            int mid= start+(end-start) / 2;
-            // Ascending side :
-            if (arr[mid] < arr[mid+1]) {
-                start = mid +1 ;
-            }else {
-                end = mid;
+        while (start < end) {
+            while (arr[start] < pivot) {
+                start++;
+            }
+            while (arr[end] > pivot) {
+                end--;
+            }
+            //SWAP
+            if (start >= end) {
+                int temp = arr[start];
+                arr[start] = arr[end];
+                arr[end] = temp;
+                start++;
+                end--;
             }
         }
-        return end;
+        sortArray(arr,low,end);
+        sortArray(arr,start,high);
+
+        return arr;
     }
 
 
 
     public static void main(String[] args) {
-        int[] array = {1,2,2,1};
+        int[] array = {1,2,5,6,2,1};
         int[] arr = {60};
         int n = array.length;
-        System.out.println(peakElement(array));
+        int[] ans = sortArray(array, 0, n);
+        System.out.println(Arrays.toString(ans));
+
 
 
 
