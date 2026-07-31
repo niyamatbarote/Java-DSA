@@ -1,5 +1,6 @@
 package DSA.randomLeetCode;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class RandomPractice {
@@ -74,18 +75,17 @@ public class RandomPractice {
     }
 
     public static int[] sortArray(int[] arr, int low, int high) {
-        if (low >= high){
+        if (low >= high) {
             return arr;
         }
-        int n = arr.length;
         int start = low;
         int end = high;
         int mid = start + (end-start) / 2;
         int pivot = arr[mid];
 
-        while (start < end) {
+        while (start <= end) {
             while (arr[start] < pivot) {
-                start++;
+                start ++;
             }
             while (arr[end] > pivot) {
                 end--;
@@ -99,20 +99,43 @@ public class RandomPractice {
                 end--;
             }
         }
-        sortArray(arr,low,end);
-        sortArray(arr,start,high);
+        sortArray(arr,low, end);
+        sortArray(arr,start, high);
 
         return arr;
+    }
+
+    public static ArrayList<Integer> removeElement(int[] arr, int val) {
+        int n = arr.length;
+        ArrayList<Integer> list = new ArrayList<>();
+        // put array int list :
+        for (int i = 0 ; i<n; i++ ) {
+            list.add(arr[i]);
+        }
+        // Remove the VAL from Arraylist.
+        for (int j = 0; j<list.size(); j++) {
+            if (list.get(j) == val) {
+                list.remove(j);
+                j--;
+            }
+        }
+        return list;
     }
 
 
 
     public static void main(String[] args) {
-        int[] array = {1,2,5,6,2,1};
+        int[] array = {7,9,2,4,5,1,3,4,9,5,4};
         int[] arr = {60};
         int n = array.length;
-        int[] ans = sortArray(array, 0, n-1);
-        System.out.println(Arrays.toString(ans));
+
+        System.out.println(removeElement(array, 7));
+        ArrayList<Integer> list = new ArrayList<>();
+        list = removeElement(array, 1);
+        System.out.println(list);
+        list.set(4,100);
+        System.out.println(list);
+
 
 
 
