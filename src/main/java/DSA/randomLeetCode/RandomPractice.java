@@ -129,16 +129,7 @@ public class RandomPractice {
         int[] arr = {60};
         int n = array.length;
 
-        System.out.println(removeElement(array, 7));
-        ArrayList<Integer> list = new ArrayList<>();
-        list = removeElement(array, 1);
-        System.out.println(list);
-        list.set(4,100);
-        System.out.println(list);
-
-
-
-
-
+        long num = n;
+        System.out.println(num);
     }
 }
