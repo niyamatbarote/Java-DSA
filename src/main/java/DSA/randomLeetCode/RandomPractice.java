@@ -122,6 +122,26 @@ public class RandomPractice {
         return list;
     }
 
+    // Leetcode Q7 ----> https://leetcode.com/problems/reverse-integer/
+    public static int reverse(int n) {
+        int og = n;
+        if (n<0) {
+            n *= -1;
+        }
+        int digit = 0;
+
+        for (int i = 0; n>0; i++) {
+            int last = n % 10;
+            digit = digit * 10 + last;
+            n /= 10;
+        }
+        if (og < 0) {
+            digit *= -1;
+        }
+        return  digit;
+
+    }
+
 
 
     public static void main(String[] args) {
@@ -130,6 +150,6 @@ public class RandomPractice {
         int n = array.length;
 
         long num = n;
-        System.out.println(num);
+        System.out.println(reverse(1534236469));
     }
 }
