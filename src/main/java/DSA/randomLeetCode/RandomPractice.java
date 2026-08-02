@@ -2,6 +2,7 @@ package DSA.randomLeetCode;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class RandomPractice {
 
@@ -122,16 +123,52 @@ public class RandomPractice {
         return list;
     }
 
+    // LC Q)66 PLUS ONE
     public static int[] plusOne(int[] arr) {
         int n = arr.length;
-        for (int i = n-1; i >=0; i--) {
+
+        for (int i=n-1; i>=0; i--) {
+            // if arr[i] is LESS THAN 9 then there will be NO CARRY
+            if (arr[i]<9) {
+                arr[i]++;
+                // It will return array if there is number like 129 / 859 etc
+                return arr;
+            }
+
+            arr[i] = 0;
         }
+        // If we get out of the FOR LOOP means the number is LIKE 9 / 99 / 999 like on
+        // Means we need to create a NEW ARRAY with n+1 SIZE;
+        int[] ans = new int[n+1];
+        ans[0] = 1;
+        return ans;
+    }
+
+    public static List<Integer> addToArray(int[] arr, int k) {
+        // let the Number in array be 'num'
+        int num = 0;
+        // Get Number from the array :
+        for (int i = 0; i < arr.length; i++) {
+            num = num * 10 + arr[i];
+        }
+        int totSum = num+k;
+        // Create a List for answer:
+        List<Integer> list = new ArrayList<>();
+        // Put the totSum in the arrayList;
+        // we Need to FETCH the LAST DIGIT From Number & SET It at INDEX 0:
+        while (totSum>0) {
+            list.add(0,totSum%10);
+            totSum /= 10;
+        }
+        return list;
+        
     }
 
     public static void main(String[] args) {
-        int[] array = {7,9,2,4,5,1,3,4,9,5,4};
+        int[] array = {7,9,2,4};
         int[] arr = {60};
         int n = array.length;
+        System.out.println(addToArray(array,6));
 
     }
 }
