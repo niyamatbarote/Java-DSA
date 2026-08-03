@@ -144,24 +144,28 @@ public class RandomPractice {
         return ans;
     }
 
-    // LC Q) 989
+    // LC Q) 989 TestCase [9,9,9,9,9,9,9,9,9,9] & [1,2,6,3,0,7,1,7,1,9,7,5,6,6,4,4,0,0,6,3]
     public static List<Integer> addToArray(int[] arr, int k) {
         // let the Number in array be 'num'
-        int num = 0;
+        long num = 0;
         // Get Number from the array :
         for (int i = 0; i < arr.length; i++) {
             num = num * 10 + arr[i];
         }
-        int totSum = num+k;
+        long totSum = num+k;
         // Create a List for answer:
-        List<Integer> list = new ArrayList<>();
+        List<Long> list = new ArrayList<>();
         // Put the totSum in the arrayList;
         // we Need to FETCH the LAST DIGIT From Number & SET It at INDEX 0:
         while (totSum>0) {
-            list.add(0,totSum%10);
+            list.addFirst(totSum%10);
             totSum /= 10;
         }
-        return list;
+        List<Integer> ans = new ArrayList<>();
+        for (Long numb : list) {
+            ans.add(numb.intValue());
+        }
+        return ans;
         
     }
 
