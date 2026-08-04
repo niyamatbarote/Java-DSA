@@ -169,11 +169,33 @@ public class RandomPractice {
         
     }
 
+    public static List<Integer> findMissingElements(int[] arr) {
+        int[] sorted = sortArray(arr,0,arr.length-1);
+
+        ArrayList<Integer> list = new ArrayList<>();
+        for (int i = 0; i<sorted.length-1; i++) {
+            int diff = 1;
+            if (arr[i+1] - arr[i] != 1) {
+                diff = arr[i+1] - arr[i];
+            }
+            // For Incrementing the missing+1
+            // eg [1,5] diff = 4, 1+1, 1+2, 1+3
+            int j = 1;
+            while (diff > 1) {
+                list.add(arr[i] + j);
+                j++;
+                diff--;
+            }
+        }
+
+        return list;
+    }
+
     public static void main(String[] args) {
         int[] array = {7,9,2,4};
         int[] arr = {60};
         int n = array.length;
-        System.out.println(addToArray(array,6));
+        System.out.println(findMissingElements(array));
 
     }
 }
