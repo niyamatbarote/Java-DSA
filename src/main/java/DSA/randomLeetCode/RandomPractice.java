@@ -191,6 +191,19 @@ public class RandomPractice {
         return list;
     }
 
+    // LC Q) 1281
+    public int subtractProductAndSum(int n) {
+        int prod = 1;
+        int sum = 0;
+        while (n>0) {
+            int last = n%10;
+            sum += last;
+            prod *= last;
+            n/=10;
+        }
+        return prod-sum;
+    }
+
     public static void main(String[] args) {
         int[] array = {7,9,2,4};
         int[] arr = {60};
