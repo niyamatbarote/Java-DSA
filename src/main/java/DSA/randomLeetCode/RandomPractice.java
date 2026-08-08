@@ -124,26 +124,7 @@ public class RandomPractice {
         return list;
     }
 
-    // LC Q)66 PLUS ONE
-    public static int[] plusOne(int[] arr) {
-        int n = arr.length;
 
-        for (int i=n-1; i>=0; i--) {
-            // if arr[i] is LESS THAN 9 then there will be NO CARRY
-            if (arr[i]<9) {
-                arr[i]++;
-                // It will return array if there is number like 129 / 859 etc
-                return arr;
-            }
-
-            arr[i] = 0;
-        }
-        // If we get out of the FOR LOOP means the number is LIKE 9 / 99 / 999 like on
-        // Means we need to create a NEW ARRAY with n+1 SIZE;
-        int[] ans = new int[n+1];
-        ans[0] = 1;
-        return ans;
-    }
 
     // LC Q) 989 TestCase [9,9,9,9,9,9,9,9,9,9] & [1,2,6,3,0,7,1,7,1,9,7,5,6,6,4,4,0,0,6,3]
     public static List<Integer> addToArray(int[] arr, int k) {
@@ -260,6 +241,7 @@ public class RandomPractice {
         int[] arr = {60};
         int n = array.length;
         System.out.println(findMissingElements(array));
+        int[] arr1 = {7,9,2,4};
 
     }
 }
