@@ -2,6 +2,7 @@ package DSA.randomLeetCode;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class RandomPractice {
@@ -207,6 +208,53 @@ public class RandomPractice {
     // Test case for Q)989
     //[1,2,6,3,0,7,1,7,1,9,7,5,6,6,4,4,0,0,6,3]
 
+    // LCQ) 989) Add Integer to array;
+    public List<Integer> addToArrayForm(int[] arr, int k) {
+
+        List<Integer> list = new ArrayList<>();
+
+        int p = arr.length-1;
+        int carry = 0;
+
+        while (p>=0 || k>0) {
+            // each iteration with 0 numVal
+            int numVal = 0;
+
+            // If p>=0 if we have digits in array only we will add in numVal
+            if (p>=0) {
+                numVal = arr[p];
+            }
+            // To get the last digit of k:
+            int d = k%10;
+
+            // To get the total sum :
+            int sum = numVal + d + carry;
+
+            // The digit which we gonna add in the List
+            // eg-> sum=15, sum%10 = 5 || sum=7, sum&10 = 7  we will add only 5
+            int digit = sum%10;
+
+            // To store the carry outside the while loop :
+            // 15/10 = 1 || 9/10 = 0
+            carry = sum/10;
+
+            // add the DIGIT in LIST:
+            list.add(digit);
+
+            // update the pointer <--- to left
+            p--;
+            // UPDATE the k :
+            k/=10;
+
+        }
+
+        if (carry > 0) {
+            list.add(carry);
+        }
+        // REVERSE The LIST :
+        Collections.reverse(list);
+        return list;
+    }
     public static void main(String[] args) {
         int[] array = {7,9,2,4};
         int[] arr = {60};
