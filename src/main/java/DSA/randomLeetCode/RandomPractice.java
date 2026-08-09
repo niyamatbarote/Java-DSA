@@ -242,6 +242,7 @@ public class RandomPractice {
         int n = array.length;
         System.out.println(findMissingElements(array));
         int[] arr1 = {7,9,2,4};
+        int[] arr2 = {7,9,2,4};
 
     }
 }
