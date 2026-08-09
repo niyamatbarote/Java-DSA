@@ -76,9 +76,9 @@ public class RandomPractice {
         return median;
     }
 
-    public static int[] sortArray(int[] arr, int low, int high) {
+    public static void sortArray(int[] arr, int low, int high) {
         if (low >= high) {
-            return arr;
+            return ;
         }
         int start = low;
         int end = high;
@@ -104,7 +104,7 @@ public class RandomPractice {
         sortArray(arr,low, end);
         sortArray(arr,start, high);
 
-        return arr;
+        return ;
     }
 
     public static ArrayList<Integer> removeElement(int[] arr, int val) {
@@ -151,27 +151,27 @@ public class RandomPractice {
         
     }
 
-    public static List<Integer> findMissingElements(int[] arr) {
-        int[] sorted = sortArray(arr,0,arr.length-1);
-
-        ArrayList<Integer> list = new ArrayList<>();
-        for (int i = 0; i<sorted.length-1; i++) {
-            int diff = 1;
-            if (arr[i+1] - arr[i] != 1) {
-                diff = arr[i+1] - arr[i];
-            }
-            // For Incrementing the missing+1
-            // eg [1,5] diff = 4, 1+1, 1+2, 1+3
-            int j = 1;
-            while (diff > 1) {
-                list.add(arr[i] + j);
-                j++;
-                diff--;
-            }
-        }
-
-        return list;
-    }
+//    public static List<Integer> findMissingElements(int[] arr) {
+//        int[] sorted = sortArray(arr,0,arr.length-1);
+//
+//        ArrayList<Integer> list = new ArrayList<>();
+//        for (int i = 0; i<sorted.length-1; i++) {
+//            int diff = 1;
+//            if (arr[i+1] - arr[i] != 1) {
+//                diff = arr[i+1] - arr[i];
+//            }
+//            // For Incrementing the missing+1
+//            // eg [1,5] diff = 4, 1+1, 1+2, 1+3
+//            int j = 1;
+//            while (diff > 1) {
+//                list.add(arr[i] + j);
+//                j++;
+//                diff--;
+//            }
+//        }
+//
+//        return list;
+//    }
 
     // LC Q) 1281
     public int subtractProductAndSum(int n) {
@@ -236,13 +236,37 @@ public class RandomPractice {
         Collections.reverse(list);
         return list;
     }
+
+    public static double minPrice(int[] pr, int[] dis) {
+
+        sortArray(pr,0,pr.length-1);
+        sortArray(dis,0,dis.length-1);
+
+        int i = pr.length-1;
+        int j = dis.length-1;
+
+        double tot = 0;
+
+        while (i>=0 && j>=0) {
+            tot += pr[i] * ( 100.0 - dis[j] ) / 100.0;
+            i--;
+            j--;
+        }
+        while (i >= 0) {
+            tot += pr[i];
+            i--;
+        }
+        return tot;
+    }
+
     public static void main(String[] args) {
         int[] array = {7,9,2,4};
         int[] arr = {60};
         int n = array.length;
-        System.out.println(findMissingElements(array));
-        int[] arr1 = {7,9,2,4};
-        int[] arr2 = {7,9,2,4};
+
+        int[] arr1 = {10,30,21};
+        int[] arr2 = {50,60};
+        System.out.println(minPrice(arr1,arr2));
 
     }
 }
