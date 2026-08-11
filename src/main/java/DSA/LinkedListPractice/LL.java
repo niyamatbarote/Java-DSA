@@ -118,6 +118,12 @@ public class LL {
 
     // Method to Delete At Any Index in LL :
     public int deleteAt(int index) {
+        if (index == 0) {
+            deleteFirst();
+        }
+        if (index == size-1) {
+            deleteLast();
+        }
         Node temp = getNode(index-1);
         int val = temp.next.value;
         temp.next = temp.next.next;
