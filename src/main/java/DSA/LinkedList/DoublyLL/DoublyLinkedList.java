@@ -55,11 +55,21 @@ public class DoublyLinkedList {
     // Method to Display DLL :
     public void display() {
         Node temp = head;
+        Node last = null;
         while (temp != null) {
             System.out.print(temp.val + " -> ");
+            last = temp;
             temp = temp.next;
         }
         System.out.print("END");
+        System.out.println();
+        System.out.println("Reversed List : ");
+
+        while (last != null) {
+            System.out.print(last.val + " -> ");
+            last = last.prev;
+        }
+        System.out.print("START");
     }
 
     public int tailVal() {
