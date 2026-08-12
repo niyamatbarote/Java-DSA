@@ -70,10 +70,62 @@ public class DoublyLinkedList {
             last = last.prev;
         }
         System.out.print("START");
+        System.out.println();
     }
 
+    // Method to Print Tail Value
     public int tailVal() {
         return tail.val;
+    }
+
+    // Method to Insert At Tail :
+    public void insertTail(int num) {
+        Node node = new Node(num);
+        if (size == 0) {
+            insertHead(num);
+        }
+        node.prev = tail;
+        tail.next = node;
+        tail = node;
+        size++;
+    }
+
+    // Mehod to get the ith Node :
+    public Node getNode(int index) {
+        Node temp = head;
+        for (int i = 0; i < index; i++) {
+            temp = temp.next;
+        }
+        return temp;
+    }
+
+    // Method to print ith Node val
+    public int getNodeVal(int index) {
+        Node temp = head;
+        for (int i = 0; i < index; i++) {
+            temp = temp.next;
+        }
+        return temp.val;
+    }
+
+    // Method to insert At an INDEX;
+    public void insertAt(int val) {
+
+    }
+    // Method to Remove Element From HEAD :
+    public int removeHead() {
+        int val = head.val;
+        if (size == 1) {
+            head = null;
+            tail = null;
+            size--;
+            return val;
+        }
+        head = head.next;
+        head.prev = null;
+        size--;
+        return val;
+
     }
 
 }

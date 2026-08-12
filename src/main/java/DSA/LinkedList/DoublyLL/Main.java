@@ -13,7 +13,15 @@ public class Main {
         list.insertHead(2);
         list.insertHead(1);
 
+        list.insertTail(8);
+        list.insertTail(9);
+        list.insertTail(10);
+
+
         System.out.println("Tail Val is : " +list.tailVal());
+        list.display();
+        System.out.println("Node Val at index 9 is : " +list.getNodeVal(9));
+        System.out.println(list.removeHead());
         list.display();
 
 
