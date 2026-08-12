@@ -78,6 +78,11 @@ public class DoublyLinkedList {
         return tail.val;
     }
 
+    // MEthod to get the size of LIST
+    public int getSize() {
+        return size;
+    }
+
     // Method to Insert At Tail :
     public void insertTail(int num) {
         Node node = new Node(num);
@@ -109,9 +114,19 @@ public class DoublyLinkedList {
     }
 
     // Method to insert At an INDEX;
-    public void insertAt(int val) {
-
+    public void insertAt(int val, int index) {
+        Node node = new Node(val);
+        Node prev = getNode(index-1);
+        Node next = getNode(index);
+        // Connecting backward references :
+        prev.next = node;
+        node.prev = prev;
+        // Connecting frontside references :
+        node.next = next;
+        next.prev = node;
+        size++;
     }
+
     // Method to Remove Element From HEAD :
     public int removeHead() {
         int val = head.val;
@@ -125,7 +140,47 @@ public class DoublyLinkedList {
         head.prev = null;
         size--;
         return val;
+    }
 
+    // Method to REMOVE TAIL NODE
+    public int removeTail() {
+        if (size == 1) {
+            removeHead();
+        }
+        Node prev = getNode(size-2);
+        int val = prev.val;
+        tail = prev;
+        tail.next = null;
+        size--;
+        return val;
+    }
+
+    //Method to DELETE AT INDEX :
+    public int removeAt(int index) {
+        // IF Tail index = size -1
+        if (index == size-1) {
+            removeTail();
+        }
+        // IF HEAD index = 0
+        if (index == 0) {
+            removeHead();
+        }
+        Node node = getNode(index);
+        int val = node.val;
+
+        Node previous = getNode(index-1);
+
+        // We Can use this ALSO
+//        Node nextNode = getNode(index+1);
+//        previous.next = nextNode;
+//        nextNode.prev = previous;
+
+        // REMOVING NODE only using previous Node
+        previous.next = previous.next.next;
+        previous.next.next.prev = previous;
+
+        size--;
+        return val;
     }
 
 }

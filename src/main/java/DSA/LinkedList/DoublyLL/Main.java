@@ -20,10 +20,26 @@ public class Main {
 
         System.out.println("Tail Val is : " +list.tailVal());
         list.display();
+
         System.out.println("Node Val at index 9 is : " +list.getNodeVal(9));
         System.out.println(list.removeHead());
         list.display();
 
+        list.insertAt(100,2);
+        list.display();
+
+        System.out.println( "Size of List is : " +list.getSize());
+        System.out.println("Tail Val is : " +list.tailVal());
+
+        System.out.println(list.removeTail());
+        list.display();
+        System.out.println( "Size of List is : " +list.getSize());
+        System.out.println("Tail Val is : " +list.tailVal());
+
+        System.out.println(list.removeAt(2));
+        list.display();
+        System.out.println( "Size of List is : " +list.getSize());
+        System.out.println("Tail Val is : " +list.tailVal());
 
     }
 }
