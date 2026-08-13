@@ -29,6 +29,27 @@ public class CircularLinkedList {
         return;
     }
 
+    // Method to remove node from CLL
+    public void removeVal(int value) {
+        Node node = head;
+
+        // IF head == val
+        if (node.val == value) {
+            head = head.next;
+            tail.next = head;
+            return;
+        }
+
+        do {
+            Node n = node.next;
+            if (n.val == value) {
+                node.next = n.next;
+                break;
+            }
+            node = node.next;
+        }while (node != head);
+    }
+
     // Display the CLL :
     public void display() {
         Node node = head;
