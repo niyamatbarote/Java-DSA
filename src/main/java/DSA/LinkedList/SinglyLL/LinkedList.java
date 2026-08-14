@@ -14,6 +14,21 @@ public class LinkedList {
         this.size = 0;
     }
 
+
+    // Method to Insert in List Using RECURSION :
+    public Node insertRec(int value, int index, Node node) {
+        // Base Case :
+        if (index == 0) {
+            Node newNode = new Node(value);
+            newNode.next = node;
+            size++;
+            return newNode;
+        }
+        // Recursive Part :
+        node.next = insertRec(value, index-1, node.next);
+        return node;
+    }
+
     // CLASS NODE :
     private class Node {
         private int value;

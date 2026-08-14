@@ -17,6 +17,8 @@ public class Main {
         System.out.println("\n"+list.deleteAtIndex(1));
         list.displayLL();
 
+        list.insertRec(100,1,list.head)
+
 //        System.out.println(list.search(122));
     }
 }
