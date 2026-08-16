@@ -14,9 +14,12 @@ public class LinkedList {
         this.size = 0;
     }
 
-
+    // ******************I*M*P******************************
     // Method to Insert in List Using RECURSION :
-    public Node insertRec(int value, int index, Node node) {
+    public void insertRec(int value, int index) {
+        head = insertRec(value,index,head);
+    }
+    private Node insertRec(int value, int index, Node node) {
         // Base Case :
         if (index == 0) {
             Node newNode = new Node(value);
@@ -27,6 +30,28 @@ public class LinkedList {
         // Recursive Part :
         node.next = insertRec(value, index-1, node.next);
         return node;
+    }
+
+    // *************LEETCODE QUESTIONS*************************
+
+    // LC Q) 83 : Remove Duplicates From LL:
+    public void removeDuplicates() {
+        Node node = head;
+
+        while (node.next != null) {
+            if (node.value == node.next.value) {
+                node.next = node.next.next;
+            }else {
+                node = node.next;
+            }
+        }
+
+        return;
+    }
+
+    // LC Q) 21 Merge Two Sorted Lists :
+    public static void merge(LinkedList list1, ) {
+
     }
 
     // CLASS NODE :
@@ -73,6 +98,7 @@ public class LinkedList {
             temp = temp.next;
         }
         System.out.print("NULL");
+        System.out.println();
     }
 
     // Insert at TAIL :
