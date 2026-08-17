@@ -14,45 +14,7 @@ public class LinkedList {
         this.size = 0;
     }
 
-    // ******************I*M*P******************************
-    // Method to Insert in List Using RECURSION :
-    public void insertRec(int value, int index) {
-        head = insertRec(value,index,head);
-    }
-    private Node insertRec(int value, int index, Node node) {
-        // Base Case :
-        if (index == 0) {
-            Node newNode = new Node(value);
-            newNode.next = node;
-            size++;
-            return newNode;
-        }
-        // Recursive Part :
-        node.next = insertRec(value, index-1, node.next);
-        return node;
-    }
 
-    // *************LEETCODE QUESTIONS*************************
-
-    // LC Q) 83 : Remove Duplicates From LL:
-    public void removeDuplicates() {
-        Node node = head;
-
-        while (node.next != null) {
-            if (node.value == node.next.value) {
-                node.next = node.next.next;
-            }else {
-                node = node.next;
-            }
-        }
-
-        return;
-    }
-
-    // LC Q) 21 Merge Two Sorted Lists :
-    public static void merge(LinkedList list1, ) {
-
-    }
 
     // CLASS NODE :
     private class Node {
@@ -192,6 +154,83 @@ public class LinkedList {
             node = node.next;
         }
         return null;
+    }
+
+    // ******************I*M*P******************************
+    // Method to Insert in List Using RECURSION :
+    public void insertRec(int value, int index) {
+        head = insertRec(value,index,head);
+    }
+    private Node insertRec(int value, int index, Node node) {
+        // Base Case :
+        if (index == 0) {
+            Node newNode = new Node(value);
+            newNode.next = node;
+            size++;
+            return newNode;
+        }
+        // Recursive Part :
+        node.next = insertRec(value, index-1, node.next);
+        return node;
+    }
+
+    // *************LEETCODE QUESTIONS*************************
+
+    // LC Q) 83 : Remove Duplicates From LL:
+    public void removeDuplicates() {
+        Node node = head;
+
+        while (node.next != null) {
+            if (node.value == node.next.value) {
+                node.next = node.next.next;
+            }else {
+                node = node.next;
+            }
+        }
+
+        return;
+    }
+
+    // LC Q) 21 Merge Two Sorted Lists :
+    public static LinkedList merge(LinkedList list1, LinkedList list2) {
+        LinkedList ans = new LinkedList();
+        Node f = list1.head;
+        Node s = list2.head;
+        if (f==null) {
+            while (s != null) {
+                ans.insertTail(s.value);
+                s= s.next;
+            }
+            return ans;
+        }
+
+        if (s == null) {
+            while (f != null) {
+                ans.insertTail(f.value);
+                f= f.next;
+            }
+            return ans;
+        }
+
+        while (f!=null && s!= null) {
+            if (f.value <= s.value) {
+                ans.insertTail(f.value);
+                f= f.next;
+            } else {
+                ans.insertTail(s.value);
+                s= s.next;
+            }
+        }
+        // IF ANy List is not null :
+        while (f != null) {
+            ans.insertTail(f.value);
+            f= f.next;
+        }
+        while (s != null) {
+            ans.insertTail(s.value);
+            s= s.next;
+        }
+        return ans;
     }
 
 }

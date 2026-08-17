@@ -6,22 +6,25 @@ public class Main {
 
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
-        list.insertHead(3);
-        list.insertHead(3);
-        list.insertHead(3);
-        list.insertHead(1);
-        list.insertHead(1);
-        list.insertTail(4);
-        list.insertAt(2,2);
-        list.displayLL();
-        System.out.println("\n"+list.deleteAtIndex(1));
-        list.displayLL();
 
-        list.insertRec(1,1);
-        list.displayLL();
+        list.insertTail(1);
+        list.insertTail(2);
+        list.insertTail(4);
+        list.insertTail(6);
+
 
         list.removeDuplicates();
         list.displayLL();
+        LinkedList list1 = new LinkedList();
+        list1.insertTail(1);
+        list1.insertTail(3);
+        list1.insertTail(4);
+//        list1.insertTail(6);
+        list1.displayLL();
+
+        LinkedList mergedList = LinkedList.merge(list1,list);
+        mergedList.displayLL();
+
 
 
     }
