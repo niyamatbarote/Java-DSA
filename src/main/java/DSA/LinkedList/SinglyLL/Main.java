@@ -1,6 +1,7 @@
 package DSA.LinkedList.SinglyLL;
 
 
+import org.w3c.dom.Node;
 
 public class Main {
 
@@ -24,6 +25,9 @@ public class Main {
 
         LinkedList mergedList = LinkedList.merge(list1,list);
         mergedList.displayLL();
+
+
+
 
 
 
