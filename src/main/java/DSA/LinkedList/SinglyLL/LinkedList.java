@@ -1,5 +1,7 @@
 package DSA.LinkedList.SinglyLL;
 
+import javax.management.ListenerNotFoundException;
+
 public class LinkedList {
 
     public int getSize() {
@@ -247,6 +249,27 @@ public class LinkedList {
             }
         }
         return false;
+    }
+    // MICROSOFT QUESTION :
+    // Q) Find the Length of the LOOP :
+    public int loopLength(LinkedList list) {
+        Node slow = list.head;
+        Node fast = list.head;
+
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+
+            if (slow == fast) {
+                int length = 0;
+                do {
+                    slow = slow.next;
+                    length++;
+                } while (slow != fast);
+                return length;
+            }
+        }
+        return 0;
     }
 
 
