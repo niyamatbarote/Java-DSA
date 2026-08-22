@@ -224,13 +224,28 @@ public class LeetCode {
         }
 
         return verSum;
+    }
 
-
+    // LC Q)3622
+    public static boolean checkDivisibility(int n) {
+        int og = n;
+        int sum = 0;
+        int prod = 1;
+        // Finding Digit Sum and Product:
+        while (n>0) {
+            int digit = n%10;
+            sum += digit;
+            prod *= digit;
+            n /= 10;
+        }
+        int tot = sum+prod;
+        return og%tot == 0;
     }
 
     public static void main(String[] args) {
         int[][] arr = {{2,3},{1,4}};
         System.out.println(canPartitionGrid(arr));
         System.out.println();
+        System.out.println(checkDivisibility(99));
     }
 }
