@@ -26,10 +26,5 @@ public class Main {
         LinkedList mergedList = LinkedList.merge(list1,list);
         mergedList.displayLL();
 
-
-
-
-
-
     }
 }
