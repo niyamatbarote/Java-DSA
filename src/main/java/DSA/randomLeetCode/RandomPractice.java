@@ -258,23 +258,11 @@ public class RandomPractice {
         }
         return tot;
     }
-    public static boolean checkDivisibility(int n) {
-        int og = n;
-        int sum = 0;
-        int prod = 1;
-        // Finding Digit Sum and Product:
-        while (n>0) {
-            int digit = n%10;
-            sum += digit;
-            prod *= digit;
-            n /= 10;
-        }
-        int tot = sum+prod;
-        return og%tot == 0;
-    }
+
 
     public static void main(String[] args) {
         int[] array = {7,9,2,4};
+
         int[] arr = {60};
         int n = array.length;
 
