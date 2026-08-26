@@ -237,27 +237,6 @@ public class RandomPractice {
         return list;
     }
 
-    public static double minPrice(int[] pr, int[] dis) {
-
-        sortArray(pr,0,pr.length-1);
-        sortArray(dis,0,dis.length-1);
-
-        int i = pr.length-1;
-        int j = dis.length-1;
-
-        double tot = 0;
-
-        while (i>=0 && j>=0) {
-            tot += pr[i] * ( 100.0 - dis[j] ) / 100.0;
-            i--;
-            j--;
-        }
-        while (i >= 0) {
-            tot += pr[i];
-            i--;
-        }
-        return tot;
-    }
     public static boolean checkDivisibility(int n) {
         int og = n;
         int sum = 0;
@@ -274,6 +253,8 @@ public class RandomPractice {
     }
 
 
+
+
     public static void main(String[] args) {
         int[] array = {7,9,2,4};
 
@@ -282,7 +263,7 @@ public class RandomPractice {
 
         int[] arr1 = {10,30,21};
         int[] arr2 = {50,60};
-        System.out.println(minPrice(arr1,arr2));
+
 
     }
 }
