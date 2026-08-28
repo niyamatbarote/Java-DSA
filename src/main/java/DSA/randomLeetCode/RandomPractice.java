@@ -237,22 +237,24 @@ public class RandomPractice {
         return list;
     }
 
-    // LC Q) 1281
-    public int subtractProductAndSum1(int n) {
-        int prod = 1;
-        int sum = 0;
-        while (n>0) {
-            int last = n%10;
-            sum += last;
-            prod *= last;
-            n/=10;
+    static int addDigits(int num) {
+        if (num == 0) {
+            return 0 ;
         }
-        return prod-sum;
+        int sum = 0;
+        while (sum <10) {
+            sum = num %= 10;
+            sum += num %= 10;
+            num /= 10;
+            if (sum <10) {
+
+                return sum;
+            }else {
+                sum = 0;
+            }
+        }
+        return sum;
     }
-
-
-
-
 
     public static void main(String[] args) {
         int[] array = {7,9,2,4};
