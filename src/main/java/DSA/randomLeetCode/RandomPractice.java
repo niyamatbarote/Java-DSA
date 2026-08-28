@@ -237,20 +237,19 @@ public class RandomPractice {
         return list;
     }
 
-    public static boolean checkDivisibility(int n) {
-        int og = n;
-        int sum = 0;
+    // LC Q) 1281
+    public int subtractProductAndSum1(int n) {
         int prod = 1;
-        // Finding Digit Sum and Product:
+        int sum = 0;
         while (n>0) {
-            int digit = n%10;
-            sum += digit;
-            prod *= digit;
-            n /= 10;
+            int last = n%10;
+            sum += last;
+            prod *= last;
+            n/=10;
         }
-        int tot = sum+prod;
-        return og%tot == 0;
+        return prod-sum;
     }
+
 
 
 
