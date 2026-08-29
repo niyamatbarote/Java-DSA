@@ -237,23 +237,14 @@ public class RandomPractice {
         return list;
     }
 
-    static int addDigits(int num) {
-        if (num == 0) {
-            return 0 ;
+    // Q) 989  Add to Array Form of Integer :
+    public static int digitCount(int n) {
+        int count = 0;
+        while (n>0) {
+            n /= 10;
+            count ++;
         }
-        int sum = 0;
-        while (sum <10) {
-            sum = num %= 10;
-            sum += num %= 10;
-            num /= 10;
-            if (sum <10) {
-
-                return sum;
-            }else {
-                sum = 0;
-            }
-        }
-        return sum;
+        return count;
     }
 
     public static void main(String[] args) {
