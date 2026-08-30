@@ -1,7 +1,6 @@
 package DSA.randomLeetCode;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -237,24 +236,47 @@ public class RandomPractice {
         return list;
     }
 
-    // Q) 989  Add to Array Form of Integer :
-    public static int digitCount(int n) {
-        int count = 0;
-        while (n>0) {
-            n /= 10;
-            count ++;
+    public static int minimumDeletions(int[] arr) {
+        int n = arr.length;
+        // Base Case (Single Element)
+        if (n==1) {
+            return n;
         }
-        return count;
+        int min = arr[0];
+        int max = arr[0];
+        int minIndex = 0;
+        int maxIndex = 0;
+
+        for (int i = 0; i < n; i++) {
+            if (arr[i] < min) {
+                min = arr[i];
+                minIndex = i;
+            }
+            if (arr[i] > max) {
+                max = arr[i];
+                maxIndex = i;
+            }
+        }
+        int firstIndex = Math.min(minIndex,maxIndex);
+        int lastIndex = Math.max(minIndex , maxIndex);
+        int both = (firstIndex+1) + ((n)-(lastIndex)); // Front to firstIndex + Back to lastIndex Cost
+        int checkLastRange = n-firstIndex;
+        int frontCheck = Math.min(lastIndex+1 , both);
+        int lastCheck = Math.min(both, checkLastRange);
+
+        return Math.min(frontCheck , lastCheck);
+
     }
 
     public static void main(String[] args) {
         int[] array = {7,9,2,4};
 
-        int[] arr = {60};
+        int[] arr = {2,3,4,5,6,7,8,1};
         int n = array.length;
 
         int[] arr1 = {10,30,21};
         int[] arr2 = {50,60};
+        System.out.println(minimumDeletions(arr));
 
 
     }
