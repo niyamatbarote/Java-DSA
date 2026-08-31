@@ -267,6 +267,24 @@ public class RandomPractice {
         return Math.min(frontCheck , lastCheck);
 
     }
+    static int addDigits(int num) {
+        if (num == 0) {
+            return 0 ;
+        }
+        int sum = 0;
+        while (sum <10) {
+            sum = num %= 10;
+            sum += num %= 10;
+            num /= 10;
+            if (sum <10) {
+
+                return sum;
+            }else {
+                sum = 0;
+            }
+        }
+        return sum;
+    }
 
     public static void main(String[] args) {
         int[] array = {7,9,2,4};
