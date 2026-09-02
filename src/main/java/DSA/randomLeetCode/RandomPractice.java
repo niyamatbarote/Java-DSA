@@ -267,23 +267,13 @@ public class RandomPractice {
         return Math.min(frontCheck , lastCheck);
 
     }
-    static int addDigits(int num) {
-        if (num == 0) {
-            return 0 ;
-        }
-        int sum = 0;
-        while (sum <10) {
-            sum = num %= 10;
-            sum += num %= 10;
-            num /= 10;
-            if (sum <10) {
 
-                return sum;
-            }else {
-                sum = 0;
-            }
+    public static void table (int n) {
+        int i = 1;
+        while (i != 11) {
+            System.out.println(n + " X "+ i +" = "+ n*i);
+            i++;
         }
-        return sum;
     }
 
     public static void main(String[] args) {
@@ -294,7 +284,7 @@ public class RandomPractice {
 
         int[] arr1 = {10,30,21};
         int[] arr2 = {50,60};
-        System.out.println(minimumDeletions(arr));
+        table(5);
 
 
     }
