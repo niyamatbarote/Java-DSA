@@ -188,93 +188,26 @@ public class RandomPractice {
     // Test case for Q)989
     //[1,2,6,3,0,7,1,7,1,9,7,5,6,6,4,4,0,0,6,3]
 
-    // LCQ) 989) Add Integer to array;
-    public List<Integer> addToArrayForm(int[] arr, int k) {
-
-        List<Integer> list = new ArrayList<>();
-
-        int p = arr.length-1;
-        int carry = 0;
-
-        while (p>=0 || k>0) {
-            // each iteration with 0 numVal
-            int numVal = 0;
-
-            // If p>=0 if we have digits in array only we will add in numVal
-            if (p>=0) {
-                numVal = arr[p];
-            }
-            // To get the last digit of k:
-            int d = k%10;
-
-            // To get the total sum :
-            int sum = numVal + d + carry;
-
-            // The digit which we gonna add in the List
-            // eg-> sum=15, sum%10 = 5 || sum=7, sum&10 = 7  we will add only 5
-            int digit = sum%10;
-
-            // To store the carry outside the while loop :
-            // 15/10 = 1 || 9/10 = 0
-            carry = sum/10;
-
-            // add the DIGIT in LIST:
-            list.add(digit);
-
-            // update the pointer <--- to left
-            p--;
-            // UPDATE the k :
-            k/=10;
-
+    static int addDigits(int num) {
+        if (num == 0) {
+            return 0 ;
         }
+        int sum = 0;
+        while (sum <10) {
+            sum = num %= 10;
+            sum += num %= 10;
+            num /= 10;
+            if (sum <10) {
 
-        if (carry > 0) {
-            list.add(carry);
-        }
-        // REVERSE The LIST :
-        Collections.reverse(list);
-        return list;
-    }
-
-    public static int minimumDeletions(int[] arr) {
-        int n = arr.length;
-        // Base Case (Single Element)
-        if (n==1) {
-            return n;
-        }
-        int min = arr[0];
-        int max = arr[0];
-        int minIndex = 0;
-        int maxIndex = 0;
-
-        for (int i = 0; i < n; i++) {
-            if (arr[i] < min) {
-                min = arr[i];
-                minIndex = i;
-            }
-            if (arr[i] > max) {
-                max = arr[i];
-                maxIndex = i;
+                return sum;
+            }else {
+                sum = 0;
             }
         }
-        int firstIndex = Math.min(minIndex,maxIndex);
-        int lastIndex = Math.max(minIndex , maxIndex);
-        int both = (firstIndex+1) + ((n)-(lastIndex)); // Front to firstIndex + Back to lastIndex Cost
-        int checkLastRange = n-firstIndex;
-        int frontCheck = Math.min(lastIndex+1 , both);
-        int lastCheck = Math.min(both, checkLastRange);
-
-        return Math.min(frontCheck , lastCheck);
-
+        return sum;
     }
 
-    public static void table (int n) {
-        int i = 1;
-        while (i != 11) {
-            System.out.println(n + " X "+ i +" = "+ n*i);
-            i++;
-        }
-    }
+
 
     public static void main(String[] args) {
         int[] array = {7,9,2,4};
@@ -284,7 +217,7 @@ public class RandomPractice {
 
         int[] arr1 = {10,30,21};
         int[] arr2 = {50,60};
-        table(5);
+
 
 
     }
