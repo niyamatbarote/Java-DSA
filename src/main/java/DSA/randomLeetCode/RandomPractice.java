@@ -1,6 +1,7 @@
 package DSA.randomLeetCode;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -185,32 +186,32 @@ public class RandomPractice {
         return prod-sum;
     }
 
-    // Fibo
-    public static void fiboSer(int n) {
-        int fib1 = 0;
-        int fib2 = 1;
-        int fib3;
-        if (n==0) {
-            return;
+    // LC Q) 3903
+    public static int instableIndex(int[] arr, int k) {
+        int n = arr.length;
+
+        int minEl = Integer.MAX_VALUE;
+        int maxEl = Integer.MIN_VALUE;
+
+        int[] minIndex = new int[n];
+
+        // minIndex[n-1] = arr[n-1];
+        // PreCalculate Min For each INDEX
+        for (int i = n-1; i>=0; i--) {
+            minEl = Math.min(minEl , arr[i]);
+            minIndex[i] = minEl;
         }
-        if (n==1) {
-            System.out.println(fib1 + " ");
-            return;
-        }
-        if (n==2) {
-            System.out.println(fib2);
-            return;
-        }
-        if (n>0) {
-            System.out.print(fib1 + " ");
-            System.out.print(fib2 + " ");
-            for (int i = 3; i <= n; i++) {
-                fib3 = fib1 + fib2;
-                System.out.print(fib3 + " ");
-                fib1 = fib2;
-                fib2 = fib3;
+
+        // Find MAX ELEMENT While Traversing and Find Instability Score while
+        // By substracting Precalculated MIN INDEX Values;
+        for (int i = 0; i<n; i++) {
+            maxEl = Math.max(maxEl, arr[i]);
+            int instability = maxEl - minIndex[i];
+            if (instability <= k) {
+                return i;
             }
         }
+        return -1;
     }
 
 
@@ -220,13 +221,15 @@ public class RandomPractice {
     public static void main(String[] args) {
         int[] array = {7,9,2,4};
 
-        int[] arr = {2,3,4,5,6,7,8,1};
+        int[] arr = {5,0,1,4};
         int n = array.length;
 
         int[] arr1 = {10,30,21};
         int[] arr2 = {50,60};
 
-        fiboSer(50);
+        int a =9;
+
+
 
 
 
