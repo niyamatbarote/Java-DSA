@@ -185,27 +185,35 @@ public class RandomPractice {
         return prod-sum;
     }
 
-    // Test case for Q)989
-    //[1,2,6,3,0,7,1,7,1,9,7,5,6,6,4,4,0,0,6,3]
-
-    static int addDigits(int num) {
-        if (num == 0) {
-            return 0 ;
+    // Fibo
+    public static void fiboSer(int n) {
+        int fib1 = 0;
+        int fib2 = 1;
+        int fib3;
+        if (n==0) {
+            return;
         }
-        int sum = 0;
-        while (sum <10) {
-            sum = num %= 10;
-            sum += num %= 10;
-            num /= 10;
-            if (sum <10) {
-
-                return sum;
-            }else {
-                sum = 0;
+        if (n==1) {
+            System.out.println(fib1 + " ");
+            return;
+        }
+        if (n==2) {
+            System.out.println(fib2);
+            return;
+        }
+        if (n>0) {
+            System.out.print(fib1 + " ");
+            System.out.print(fib2 + " ");
+            for (int i = 3; i <= n; i++) {
+                fib3 = fib1 + fib2;
+                System.out.print(fib3 + " ");
+                fib1 = fib2;
+                fib2 = fib3;
             }
         }
-        return sum;
     }
+
+
 
 
 
@@ -217,6 +225,8 @@ public class RandomPractice {
 
         int[] arr1 = {10,30,21};
         int[] arr2 = {50,60};
+
+        fiboSer(50);
 
 
 
