@@ -165,13 +165,15 @@ public class Pattern {
             System.out.println();
         }
 
-        System.out.println("Solid Upper Right Triangle :");
-        // Solid Upper Right Triangle :
-        for (int i = 1; i <= n; i++) {
-            for (int j = 1; j <= n; j++) {
+//        System.out.println("Solid Upper Right Triangle :");
+//        // Solid Upper Right Triangle :
+//        for (int i = 1; i <= n; i++) {
+//            for (int j = n; j >= i; j--) {
+//                System.out.print("* ");
+//            }
+//            System.out.println();
+//        }
 
-            }
-        }
 
     }
 }
