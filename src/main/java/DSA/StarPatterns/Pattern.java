@@ -152,6 +152,19 @@ public class Pattern {
             System.out.println();
         }
 
+        System.out.println("Solid Upper Right Triangle :");
+        // Solid Upper Right Triangle :
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= n; j++) {
+                if (j>=i) {
+                    System.out.print("* ");
+                }else {
+                    System.out.print("  ");
+                }
+            }
+            System.out.println();
+        }
+
         System.out.println("Hollow Lower Right Triangle :");
         // Hollow Lower Right Triangle :
         for (int i = 1; i <= n; i++) {
@@ -165,15 +178,82 @@ public class Pattern {
             System.out.println();
         }
 
-//        System.out.println("Solid Upper Right Triangle :");
-//        // Solid Upper Right Triangle :
+        System.out.println("Solid Lower Right Triangle :");
+        // Solid Lower Right Triangle :
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= n; j++) {
+                if (i+j >= n+1) {
+                    System.out.print("* ");
+                } else {
+                    System.out.print("  ");
+                }
+            }
+            System.out.println();
+        }
+
+        System.out.println("Lower Pyramid Pattern :");
+        // Lower Pyramid Pattern :
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= n; j++) {
+                if ( i>= (n/2)+1 && i>=j && i+j >= n+1) {
+                    System.out.print("* ");
+                }else {
+                    System.out.print("  ");
+                }
+            }
+            System.out.println();
+        }
+
+        System.out.println("UpSide Down Pyramid Pattern :");
+        //  UpSide Down Pyramid Pattern :
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= n; j++) {
+                if ( i <= (n/2)+1 && i+j <= n+1 && j>=i) {
+                    System.out.print("* ");
+                }else {
+                    System.out.print("  ");
+                }
+            }
+            System.out.println();
+        }
+
+        System.out.println("Left Shifted Pyramid Pattern :");
+        // Left Shifted Pyramid Pattern :
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= n; j++) {
+                if ( j <= (n/2)+1 && j<=i && j+i<=n+1) {
+                    System.out.print("* ");
+                }else {
+                    System.out.print("  ");
+                }
+            }
+            System.out.println();
+        }
+
+        System.out.println("Right Shifted Pyramid Pattern :");
+        // Right Shifted Pyramid Pattern :
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= n; j++) {
+                if ( j >= (n/2)+1 && i+j>=n+1 && j>=i) {
+                    System.out.print("* ");
+                }else {
+                    System.out.print("  ");
+                }
+            }
+            System.out.println();
+        }
+
+//        System.out.println("DIAMOND : ");
+//        // Diamond pattern:
 //        for (int i = 1; i <= n; i++) {
-//            for (int j = n; j >= i; j--) {
-//                System.out.print("* ");
+//            for (int j = 1; j <= n; j++) {
+//                if ( i+j>=n+1 && j+i<=n+1 && j >= (n/2)+1 && j <= (n/2)+1) {
+//                    System.out.print("* ");
+//                }else {
+//                    System.out.print("  ");
+//                }
 //            }
 //            System.out.println();
 //        }
-
-
     }
 }
