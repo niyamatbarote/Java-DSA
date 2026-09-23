@@ -186,32 +186,47 @@ public class RandomPractice {
         return prod-sum;
     }
 
-    // LC Q) 3903
-    public static int instableIndex(int[] arr, int k) {
-        int n = arr.length;
-
-        int minEl = Integer.MAX_VALUE;
-        int maxEl = Integer.MIN_VALUE;
-
-        int[] minIndex = new int[n];
-
-        // minIndex[n-1] = arr[n-1];
-        // PreCalculate Min For each INDEX
-        for (int i = n-1; i>=0; i--) {
-            minEl = Math.min(minEl , arr[i]);
-            minIndex[i] = minEl;
+    // ArmStrong Number:
+    public static int countDigits(int num) {
+        int count = 0;
+        while (num != 0) {
+            num /= 10;
+            count++;
         }
-
-        // Find MAX ELEMENT While Traversing and Find Instability Score while
-        // By substracting Precalculated MIN INDEX Values;
-        for (int i = 0; i<n; i++) {
-            maxEl = Math.max(maxEl, arr[i]);
-            int instability = maxEl - minIndex[i];
-            if (instability <= k) {
-                return i;
-            }
+        return count;
+    }
+    public static int power(int x, int n) {
+        int sum = 0;
+        int power = 1;
+        for (int i = 1; i <= n; i++) {
+            power *= x;
         }
-        return -1;
+        return power;
+    }
+    public static boolean isStrong(int num) {
+        int og = num;
+        int sum = 0;
+        int count = countDigits(num);
+        while (num != 0){
+            int digit = num % 10;
+            sum += power(digit,count);
+            num /= 10;
+        }
+        return sum == og;
+    }
+
+    // Disarium Number :
+    public static boolean isDisarium(int num) {
+        int sum = 0;
+        int og = num;
+
+        while (num != 0) {
+            int digit = num % 10;
+            int count = countDigits(num);
+            sum += power(digit , count);
+            num /= 10;
+        }
+        return og == sum;
     }
 
 
@@ -228,7 +243,8 @@ public class RandomPractice {
         int[] arr2 = {50,60};
 
         int a =9;
-
+        System.out.println(isStrong(1634));
+        System.out.println(isDisarium(175));
 
 
 
