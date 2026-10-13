@@ -229,6 +229,32 @@ public class RandomPractice {
         return og == sum;
     }
 
+    public int checkValidString(String s) {
+        int count = 0;
+        int star = 0;
+
+        for(int i=0; i<s.length(); i++) {
+            char ch = s.charAt(i);
+            if(ch=='(') {
+                count++;
+            } else if (ch==')') {
+                count--;
+            } else if (ch=='*') {
+                star++;
+            }
+        }
+        if (count == 0) {
+            return count;
+        }
+        if(count<0) {
+            count += star;
+        }
+        if(count>0) {
+            count -= star;
+        }
+        return count;
+    }
+
 
 
 
@@ -246,7 +272,7 @@ public class RandomPractice {
         System.out.println(isStrong(1634));
         System.out.println(isDisarium(175));
 
-
+        RandomPractice cvs = new RandomPractice();
 
 
     }
