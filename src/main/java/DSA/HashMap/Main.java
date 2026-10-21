@@ -25,7 +25,7 @@ public class Main {
 
         // Printing Whole HashMap
         for (Map.Entry<Integer,String> e : map.entrySet()) {
-            System.out.println(e);
+            System.out.println(e.getValue());
         }
 
         // containsKey Method: map.containsKey(key)
@@ -41,6 +41,7 @@ public class Main {
         // get : map.get(key) : returns value
         System.out.println(map.get(4));
         System.out.println(map.get(1));
+
 
 
 
